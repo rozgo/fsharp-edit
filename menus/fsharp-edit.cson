@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Toggle fsharp-edit'
+      'command': 'fsharp-edit:toggle'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'fsharp-edit'
+      'submenu': [
+        {
+          'label': 'Toggle'
+          'command': 'fsharp-edit:toggle'
+        }
+      ]
+    ]
+  }
+]

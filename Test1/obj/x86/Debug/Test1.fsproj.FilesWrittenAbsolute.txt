@@ -1,0 +1,6 @@
+/Users/rozgo/Projects/fsharp-edit/Test1/obj/x86/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.fs
+/Users/rozgo/Projects/fsharp-edit/Test1/bin/Debug/Test1.exe.mdb
+/Users/rozgo/Projects/fsharp-edit/Test1/bin/Debug/Test1.exe
+/Users/rozgo/Projects/fsharp-edit/Test1/obj/x86/Debug/Test1.exe
+/Users/rozgo/Projects/fsharp-edit/Test1/obj/x86/Debug/Test1.exe.mdb
+/Users/rozgo/Projects/fsharp-edit/Test1/bin/Debug/FSharp.Core.dll

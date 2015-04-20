@@ -1,0 +1,27 @@
+{
+  "name": "fsharp-edit",
+  "main": "./lib/fsharp-edit",
+  "version": "0.0.0",
+  "description": "A short description of your package",
+  "activationCommands": {
+    "atom-workspace": "fsharp-edit:toggle"
+  },
+  "repository": "https://github.com/atom/fsharp-edit",
+  "license": "MIT",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "dependencies": {
+    "atom-space-pen-views": "^2.0.5",
+    "autocomplete-plus": "^2.9.0",
+    "language-fsharp": "^0.8.4"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "autocomplete"
+      }
+    }
+  }
+}

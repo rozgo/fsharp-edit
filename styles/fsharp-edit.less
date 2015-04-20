@@ -1,0 +1,50 @@
+// https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+
+@import "octicon-utf-codes";
+@import "ui-variables";
+@import "tooltips";
+
+.fsharp-edit {
+}
+
+.fsharp-edit-tooltip {
+  .tooltip .tooltip-inner;
+
+  position: absolute;
+  z-index:100;
+  padding: 5px 8px 3px 8px;
+  font-family: Consolas, monospace;
+  font-size: 10pt;
+  line-height: 12pt;
+  text-align: left;
+  white-space: pre;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.fsharp-edit-tooltip-parse-error {
+  .fsharp-edit-tooltip;
+  background-color: @background-color-error;
+  max-width: 50%;
+  white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+  word-break: normal;
+  white-space: normal;
+}
+
+.fsharp-edit-tooltip-type-error {
+  .fsharp-edit-tooltip;
+  background-color: @background-color-error;
+}
+
+atom-text-editor::shadow {
+  .highlight {
+    &.fsharp-edit-type-error .region {
+      border-bottom-width: 1px;
+      border-color: @background-color-error;
+      border-bottom-style: solid;
+      z-index: 3;
+    }
+  }
+}

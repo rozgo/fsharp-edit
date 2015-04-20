@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+<assembly><name>fsautocomplete</name></assembly>
+<members>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:Debug">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.OutputMode">
+<summary>
+ The possible types of output
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.RequestOptions">
+<summary>
+ Represents information needed to call the F# IntelliSense service
+ (including project/script options, file name and source)
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.State">
+<summary>
+ Represents current state
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="M:FSharp.InteractiveAutocomplete.CommandInput.readInput(Microsoft.FSharp.Collections.FSharpList{System.String})">
+<summary>
+ Read multi-line input as a list of strings
+</summary>
+</member>
+<member name="P:FSharp.InteractiveAutocomplete.CommandInput.project">
+<summary>
+ Parse &apos;project&apos; command
+</summary>
+</member>
+<member name="P:FSharp.InteractiveAutocomplete.CommandInput.outputmode">
+<summary>
+ Parse &apos;outputmode&apos; command
+</summary>
+</member>
+<member name="P:FSharp.InteractiveAutocomplete.CommandInput.declarations">
+<summary>
+ Parse &apos;declarations&apos; command
+</summary>
+</member>
+<member name="P:FSharp.InteractiveAutocomplete.CommandInput.quit">
+<summary>
+ Parse &apos;quit&apos; command
+</summary>
+</member>
+<member name="P:FSharp.InteractiveAutocomplete.CommandInput.help">
+<summary>
+ Parse &apos;help&apos; command
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.CommandInput">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.Main">
+<summary>
+ Contains main loop of the application
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.Options">
+
+</member>
+<member name="M:FSharp.InteractiveAutocomplete.TipFormatter.formatTip(Microsoft.FSharp.Compiler.SourceCodeServices.FSharpToolTipText)">
+<summary>
+ Format tool-tip that we get from the language service as string
+</summary>
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.TipFormatter">
+
+</member>
+<member name="">
+
+</member>
+<member name="T:FSharp.InteractiveAutocomplete.Version">
+
+</member>
+</members>
+</doc>
