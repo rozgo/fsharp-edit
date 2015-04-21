@@ -12,13 +12,13 @@ let q = 2
 let val3a = testval.Terrific "hello"
 let val3b = testval.Terrific 2
 
-let val4 : FileTwo.NewObjectType = testval
+let val4 : FileTwo.NewObjectType = testval.
 
 let val5 : int = 2332
 
 let val6 : int = 2
 
-let val7 : string = 2
+let val7 : string = ""
 
 // let val5 = X.func 4
 

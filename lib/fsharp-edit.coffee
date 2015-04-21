@@ -78,7 +78,7 @@ module.exports = FsharpEdit =
       if sendCmd
         tooltipCmd = "tooltip \"#{path}\" #{pos.row + 1} #{pos.column + 1}\n"
         self.fspipe?.stdin.write tooltipCmd
-        console.log editor
+        # console.log editor
         console.log tooltipCmd
 
     $(view).on 'mousemove.fsharp-tooltip', (e) ->
@@ -225,7 +225,7 @@ module.exports = FsharpEdit =
       getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
         if prefix == ''
           return null
-        # console.log {editor, bufferPosition, scopeDescriptor, prefix}
+        console.log {editor, bufferPosition, scopeDescriptor, prefix}
         new Promise (resolve) ->
           pos = bufferPosition
           path = editor.getPath()
