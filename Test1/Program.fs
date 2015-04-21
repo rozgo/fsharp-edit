@@ -9,7 +9,8 @@ let p = X.func 2
 
 let q = 2
 
-let val3 = testval.Terrific val2
+let val3a = testval.Terrific "hello"
+let val3b = testval.Terrific 2
 
 let val4 : FileTwo.NewObjectType = testval
 

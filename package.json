@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "atom-space-pen-views": "^2.0.5",
-    "autocomplete-plus": "^2.9.0",
-    "language-fsharp": "^0.8.4"
+    "autocomplete-plus": "git+https://github.com/atom-community/autocomplete-plus.git",
+    "language-fsharp": "git+https://github.com/jbtule/language-fsharp.git"
   },
   "providedServices": {
     "autocomplete.provider": {

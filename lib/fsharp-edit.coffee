@@ -44,6 +44,7 @@ module.exports = FsharpEdit =
 
     parse = () ->
       parseCmd = "parse \"#{editor.getPath()}\"\n#{editor.getText()}\n<<EOF>>\n"
+      console.log parseCmd
       self.fspipe?.stdin.write parseCmd
     parse()
 
@@ -75,8 +76,10 @@ module.exports = FsharpEdit =
           sendCmd = false
 
       if sendCmd
-        tooltipCmd = "tooltip \"#{path}\" #{pos.row + 1} #{pos.column + 1} \n"
+        tooltipCmd = "tooltip \"#{path}\" #{pos.row + 1} #{pos.column + 1}\n"
         self.fspipe?.stdin.write tooltipCmd
+        console.log editor
+        console.log tooltipCmd
 
     $(view).on 'mousemove.fsharp-tooltip', (e) ->
       self.lastMouseMove = e
@@ -124,13 +127,17 @@ module.exports = FsharpEdit =
       # console.log data.toString()
       process.stderr.write data.toString()
     @fspipe.stdout.on 'data', (data) ->
-      console.log "OUTPUT"
-      console.log data.toString()
+      # console.log "OUTPUT"
+      # console.log data.toString()
       jsons = data.toString().split '\n'
-      jsons.pop()
+      # jsons.pop()
+      # console.log "JSONS COUNT: " + jsons.length
       # console.log jsons
       for json in jsons
         try
+          if json.length == 0
+            continue
+          # console.log "JSON LENGTH: " + json.length
           data = JSON.parse json
           editor = self.getActiveEditor()
           # console.log data
@@ -166,22 +173,22 @@ module.exports = FsharpEdit =
                 # editor.decorateMarker(marker, {type: 'gutter', class: 'linter-error'})
                 decorator = editor.decorateMarker(marker, {type: 'highlight', class: 'fsharp-edit-type-error'})
                 # console.log decorator
+          else if data.Kind == 'debug'
+            console.log data.Log
+        catch error
+          console.log "OUTPUT"
+          console.log data.toString()
+          # console.log error
 
     console.log atom.project
     console.log utils.packagePath()
     console.log atom.project.getPaths()[0]
 
     # @fspipe.stdin.write 'outputmode json\n'
-    # @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharp-edit/Test1/Test1.fsproj"\n'
+    @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharp-edit/Test1/Test1.fsproj"\n'
     # @fspipe.stdin.write 'project "/Users/rozgo/Projects/BrinkOfWar/Frontal/Frontal.fsproj"\n'
     # @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharpbinding/FSharp.AutoComplete/FSharp.AutoComplete.fsproj"\n'
-
-    cmd =
-      project: "/Users/rozgo/Projects/SingleAppDemo/SingleAppDemo/SingleAppDemo.fsproj"
-    cmd = JSON.stringify cmd
-
-    # @fspipe.stdin.write cmd + "<<EOF>>\n"
-    @fspipe.stdin.write 'project "/Users/rozgo/Projects/SingleAppDemo/SingleAppDemo/SingleAppDemo.fsproj"\n'
+    # @fspipe.stdin.write 'project "/Users/rozgo/Projects/SingleAppDemo/SingleAppDemo/SingleAppDemo.fsproj"\n'
 
 
     @subscribeToActiveTextEditor()

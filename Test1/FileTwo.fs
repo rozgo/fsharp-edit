@@ -12,3 +12,6 @@ type NewObjectType() =
 
   member x.Terrific (y : int) : int =
     y
+
+  member x.Terrific (y : string) : string =
+    y
