@@ -10,6 +10,10 @@ let add x y = x + y
 
 type NewObjectType() =
 
+  static member Simple (p) = p
+
+  member x.P = 32
+
   member x.Terrific (y : int) : int =
     y
 

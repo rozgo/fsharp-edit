@@ -44,7 +44,7 @@ module.exports = FsharpEdit =
 
     parse = () ->
       parseCmd = "parse \"#{editor.getPath()}\"\n#{editor.getText()}\n<<EOF>>\n"
-      console.log parseCmd
+      # console.log parseCmd
       self.fspipe?.stdin.write parseCmd
     parse()
 
@@ -79,7 +79,7 @@ module.exports = FsharpEdit =
         tooltipCmd = "tooltip \"#{path}\" #{pos.row + 1} #{pos.column + 1}\n"
         self.fspipe?.stdin.write tooltipCmd
         # console.log editor
-        console.log tooltipCmd
+        # console.log tooltipCmd
 
     $(view).on 'mousemove.fsharp-tooltip', (e) ->
       self.lastMouseMove = e
@@ -108,6 +108,11 @@ module.exports = FsharpEdit =
 
     @subscriptions.add atom.workspace.onDidChangeActivePaneItem => @subscribeToActiveTextEditor()
 
+    # @subscriptions.add atom.config.observe 'did-select-next', (newValue) ->
+    #   console.log 'autocomplete-plus:select-next:', newValue
+
+    @subscriptions.add atom.packages.getActivePackage('autocomplete-plus').mainModule.autocompleteManager.suggestionList.onDidSelectNext =>
+      console.log 'suggestionList.onDidSelectNext'
 
     #@subscriptions.add atom.
 
@@ -145,10 +150,17 @@ module.exports = FsharpEdit =
             suggestions = []
             prefix = self.completionResolve.prefix
             for item in data.Data
+              console.log item
+              # continue
               if prefix == '.'
-                suggestions.push {text: item, type: "int", replacementPrefix: ''}
-              else if item.startsWith(prefix)
-                suggestions.push {text: item, type: "int", replacementPrefix: prefix}
+                suggestions.push {text: item.Item1, type: item.Item2, replacementPrefix: ''}
+              else if item.Item1.startsWith(prefix)
+                suggestions.push {
+                  text: item.Item1
+                  type: item.Item2
+                  replacementPrefix: prefix
+                  description: item.Item3}
+            console.log atom
             self.completionResolve.promise(suggestions) if self.completionResolve?
           else if data.Kind == 'tooltip'
             self.fsharpEditTooltipView?.destroy()
@@ -211,7 +223,7 @@ module.exports = FsharpEdit =
     self = @
 
     return {
-      # This will work on JavaScript and CoffeeScript files, but not in js comments.
+
       selector: '.source.fsharp'
       # disableForSelector: '.source.fsharp .constant, .source.fsharp .string'
 
@@ -223,14 +235,18 @@ module.exports = FsharpEdit =
 
       # Required: Return a promise, an array of suggestions, or null.
       getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
+
         if prefix == ''
           return null
-        console.log {editor, bufferPosition, scopeDescriptor, prefix}
+        # console.log {editor, bufferPosition, scopeDescriptor, prefix}
+        console.log 'prefix: ' + prefix
+        console.log 'scopeDescriptor: '
+        console.log scopeDescriptor
         new Promise (resolve) ->
           pos = bufferPosition
           path = editor.getPath()
           parseCmd = "parse \"#{path}\"\n#{editor.getText()}\n<<EOF>>\n"
-          completionCmd = "completion \"#{path}\" #{pos.row + 1} #{pos.column + 0} \n"
+          completionCmd = "completion \"#{path}\" \"#{prefix}\" #{pos.row + 1} #{pos.column + 0}\n"
           self.fspipe.stdin.write parseCmd
           self.fspipe.stdin.write completionCmd
           self.completionResolve = {promise: resolve, prefix: prefix}
