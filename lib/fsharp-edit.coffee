@@ -125,7 +125,9 @@ module.exports = FsharpEdit =
     # fspath = '/Users/rozgo/Projects/fsharpbinding/FSharp.AutoComplete/bin/Debug/fsautocomplete.exe'
     console.log fspath
     console.log (atom.packages.resolvePackagePath('fsharp-edit'))
-    @fspipe = spawn 'mono', [fspath]
+    options =
+      maxBuffer: 1024 * 1024
+    @fspipe = spawn 'mono', [fspath], options
 
     @fspipe.stderr.on 'data', (data) ->
       # console.log "ERROR"
@@ -197,10 +199,9 @@ module.exports = FsharpEdit =
     console.log atom.project.getPaths()[0]
 
     # @fspipe.stdin.write 'outputmode json\n'
-    @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharp-edit/Test1/Test1.fsproj"\n'
+    # @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharp-edit/Test1/Test1.fsproj"\n'
     # @fspipe.stdin.write 'project "/Users/rozgo/Projects/BrinkOfWar/Frontal/Frontal.fsproj"\n'
-    # @fspipe.stdin.write 'project "/Users/rozgo/Projects/fsharpbinding/FSharp.AutoComplete/FSharp.AutoComplete.fsproj"\n'
-    # @fspipe.stdin.write 'project "/Users/rozgo/Projects/SingleAppDemo/SingleAppDemo/SingleAppDemo.fsproj"\n'
+    @fspipe.stdin.write 'project "/Users/rozgo/Projects/SingleAppDemo/SingleAppDemo/SingleAppDemo.fsproj"\n'
 
 
     @subscribeToActiveTextEditor()
