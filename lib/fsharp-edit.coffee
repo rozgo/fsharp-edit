@@ -122,6 +122,7 @@ module.exports = FsharpEdit =
 
     # fspath = path.join utils.packagePath(), 'bin', 'FSharp.AutoComplete', 'fsautocomplete.exe'
     fspath ='/Users/rozgo/Projects/FSharpExpose/bin/Debug/FSharpExpose.exe'
+    # fspath ='/Users/rozgo/Projects/FSharpExpose/bin/Debug/FSharpExpose.sh'
     # fspath = '/Users/rozgo/Projects/fsharpbinding/FSharp.AutoComplete/bin/Debug/fsautocomplete.exe'
     console.log fspath
     console.log (atom.packages.resolvePackagePath('fsharp-edit'))
@@ -133,6 +134,8 @@ module.exports = FsharpEdit =
       # console.log "ERROR"
       # console.log data.toString()
       process.stderr.write data.toString()
+
+    # @fspipe.stdout.en 'utf8'
     @fspipe.stdout.on 'data', (data) ->
       # console.log "OUTPUT"
       # console.log data.toString()
